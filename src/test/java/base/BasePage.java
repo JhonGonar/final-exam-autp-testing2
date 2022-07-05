@@ -20,11 +20,14 @@ public class BasePage {
 
     protected static final String URL = "https://parabank.parasoft.com/parabank/index.htm";
     public BasePage(){
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-
-        wait = new WebDriverWait(BasePage.getDriver(), Duration.ofMillis(800));
+        if (driver == null){
+            WebDriverManager.chromedriver().setup();
+            driver = new ChromeDriver();
+            driver.manage().window().maximize();
+        }
+        if (wait == null){
+            wait = new WebDriverWait(BasePage.getDriver(), Duration.ofMillis(800));
+        }
     }
     public void openApp(){
         driver.get(URL);

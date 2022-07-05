@@ -2,11 +2,14 @@ package page;
 
 import base.BasePage;
 
+import com.fasterxml.jackson.annotation.ObjectIdGenerator;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 
 import java.time.Duration;
+import java.util.UUID;
 
 import static org.openqa.selenium.By.*;
 

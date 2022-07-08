@@ -1,6 +1,7 @@
 package test;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.testng.annotations.Test;
 import page.AccountOverviewPage;
 import page.OpenNewAccountPage;
@@ -10,6 +11,7 @@ import page.TransfersPage;
 public class SignUpTest {
 
     @Test
+    @DisplayName("Registro")
     void register() throws InterruptedException {
         var page = new SignUpPage();
         page.initialPage();
@@ -18,6 +20,7 @@ public class SignUpTest {
         Assertions.assertTrue(page.checkSuccessfulText());
     }
     @Test
+    @DisplayName("Abrir una cuenta nueva")
     void register2() throws InterruptedException {
         var page = new OpenNewAccountPage();
         page.initialPage();
@@ -26,12 +29,14 @@ public class SignUpTest {
     }
 
     @Test
+    @DisplayName("Resumen de las cuentas")
     void register3() throws InterruptedException {
         var page = new AccountOverviewPage();
         page.initialPage();
         Assertions.assertTrue(page.checkTextAssert());
     }
     @Test
+    @DisplayName("Trasnferir fondos")
     void register4() throws InterruptedException {
 
         var page = new TransfersPage();
@@ -42,6 +47,7 @@ public class SignUpTest {
     }
 
     @Test
+    @DisplayName("Actividad de la cuenta (cada mes)")
     void register5() throws InterruptedException {
         var page = new AccountOverviewPage();
         page.initialPage();

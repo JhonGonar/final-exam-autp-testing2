@@ -24,6 +24,17 @@ public class RestTests {
            request = RestAssured.given();
            request.auth().basic(userName, password);
     }
+
+    @DisplayName("Login test")
+    @Test
+    public void register0(){
+        request
+                .when()
+                .get("/services/bank/login/"+userName+"/"+password)
+                .then()
+                .statusCode(200).log().all();
+    }
+
     @DisplayName("Check register page")
     @Test
     public void register1(){
@@ -60,16 +71,6 @@ public class RestTests {
                 .get("/services/bank/customers/"+customerId+"/accounts")
                 .then().statusCode(200).log().all();
     }
-    @DisplayName("Get all accounts")
-    public void register4(){
-        request
-                .contentType("application/x-www-form-urlencoded; charset")
-                .formParam("grant_type", "password")
-                .formParam("username", "sfd")
-                .formParam("password", "123")
-                .when()
-                .post("/login");
-    }
     @DisplayName("Actividad de la cuenta / Transaction history")
     @Test
     public void register5(){
@@ -87,7 +88,7 @@ public class RestTests {
                 .when()
                 .post("/services/bank/createAccount?customerId="+customerId+"&newAccountType=CHECKING&fromAccountId="+fromAccount)
                 .then()
-                .statusCode(404).log().all();
+                .statusCode(200).log().all();
     }
 
     @Test

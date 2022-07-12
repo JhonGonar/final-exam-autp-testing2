@@ -15,6 +15,7 @@ public class RestTests {
     protected static RequestSpecification request;
     protected static Integer customerId = 13100;
     protected static Integer fromAccount = 14232;
+    //Por favor escriba un usuario y contraseña ya registrados para que funcione.
     protected static String userName = "prueba1";
     protected static String password = "123";
 
@@ -45,24 +46,6 @@ public class RestTests {
                 .statusCode(200)
                 .log().all();
     }
-    @Test
-    public void register2(){
-        //int customerId = 13877;
-        int accountType = 1;
-        //int fromAccount = 14898;
-        request
-                //.auth().basic("prueba1", "123")
-                .queryParams(Map.of(
-                        "customerId",customerId, "newAccountType", 1, "fromAccountId", fromAccount
-                ))
-                .when()
-                .post("/services_proxy/bank/createAccount")
-                .then()
-                .statusCode(500)
-                //.assertThat().body("customerId", Matchers.equalTo(customerId))
-                .log().all();
-    }
-
     @DisplayName("Resumen de las cuentas")
     @Test
     public void register3(){
